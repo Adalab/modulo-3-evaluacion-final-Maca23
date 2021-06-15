@@ -5,16 +5,15 @@ const getApiData = () => {
       const cleanData = data.results.map((user) => {
         return {
           id: user.id,
-          name: user.name,
           image: user.image,
+          name: user.name,
           species: user.species,
           status: user.status,
           origin: user.origin.name,
-          episodes: user.episodes.length,
+          episodes: user.episode,
         };
       });
       return cleanData;
     });
 };
-
 export default getApiData;
