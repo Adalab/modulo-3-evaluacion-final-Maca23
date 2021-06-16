@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import getIconStatus from '../services/getIconStatus';
+import getIconSpecies from "../services/getIconSpecies";
 
-const Character = (props) => {
+const CharacterCard = (props) => {
   return (
     <Link to={`/character/${props.element.id}`}>
       <article className="card">
@@ -13,9 +15,13 @@ const Character = (props) => {
         />
         <h4 className="card__title">{props.element.name}</h4>
         <p className="species">{props.element.species}</p>
+        <div className="character__item--icons">
+          <span>{getIconStatus(props.element.status)}</span>
+          <span>{getIconSpecies(props.element.species)}</span>
+        </div>
       </article>
     </Link>
   );
 };
 
-export default Character;
+export default CharacterCard;

@@ -1,10 +1,14 @@
-import Character from "./Character";
+import CharacterCard from "./CharacterCard";
+import NotFound from "./NotFound";
 
 function ListCharacter(props) {
+  if (props.character.length === 0) {
+    return <NotFound filterName={props.filterName} />;
+  }
   const characterElement = props.character.map((element) => {
     return (
       <li key={element.id}>
-        <Character element={element} />
+        <CharacterCard element={element} />
       </li>
     );
   });

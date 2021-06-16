@@ -14,13 +14,13 @@ function App() {
     ls.get("filterSpecies", "")
   );
 
-  //Importación de la api
   useEffect(() => {
-    if (character.length === 0) {
-      api().then((usersData) => {
-        setCharacter(usersData);
-      });
-    }
+    api().then((data) => {
+      const orderedData = data.sort((a, b) =>
+        a.name > b.name ? 1 : a.name < b.name ? -1 : 0
+      );
+      return setCharacter(orderedData);
+    });
   }, []);
 
   useEffect(() => {
@@ -75,7 +75,10 @@ function App() {
               filterSpecies={filterSpecies}
               handleFilter={handleFilter}
             />
-            <ListCharacter character={filteredCharacter} />
+            <ListCharacter
+              character={filteredCharacter}
+              filterName={filterName}
+            />
           </Route>
           <Route path="/character/:id" render={renderCharacterDetail} />
         </Switch>
