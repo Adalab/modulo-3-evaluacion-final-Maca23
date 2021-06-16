@@ -1,0 +1,47 @@
+@import "../core/core";
+
+.page {
+  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-bg;
+  color: $color-font;
+  font-family: $font-main;
+  height: 100%;
+  font-size: 13px;
+
+  &__header {
+    box-sizing: border-box;
+    padding-top: 30px;
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &--image {
+      width: 250px;
+    }
+  }
+}
+.content__warning {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &--message {
+    font-size: 20px;
+  }
+  &--span {
+    font-weight: bold;
+  }
+}
+
+.main {
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 210px);
+}

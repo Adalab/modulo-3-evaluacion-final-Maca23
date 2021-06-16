@@ -1,5 +1,5 @@
 const iconHuman = <i className="fas fa-user"></i>;
-const iconAlien = <i className="fas fa-meteor"></i>;
+const iconAlien = <i class="fas fa-hand-spock"></i>;
 
 const getIconSpecies = (species) => {
   return species.toLowerCase() === "human" ? iconHuman : iconAlien;

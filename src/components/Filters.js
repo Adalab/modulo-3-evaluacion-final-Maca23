@@ -1,14 +1,15 @@
 import FilterByName from "./FilterByName";
 import FilterBySpecies from "./FilterBySpecies";
 import PropTypes from "prop-types";
+import '../stylesheets/components/_filters.scss';
 
-function FilterCharacter(props) {
+function Filters(props) {
   const handleForm = (ev) => {
     ev.preventDefault();
   };
   return (
-    <section>
-      <form onSubmit={handleForm}>
+    <section className="form-section">
+      <form className="form" action="" onSubmit={handleForm}>
         <FilterByName
           filterName={props.filterName}
           handleFilter={props.handleFilter}
@@ -21,9 +22,9 @@ function FilterCharacter(props) {
     </section>
   );
 }
-export default FilterCharacter;
+export default Filters;
 
-FilterCharacter.propTypes = {
+Filters.propTypes = {
   filterName: PropTypes.array,
   handleFilter: PropTypes.func,
   filterSpecies: PropTypes.array,

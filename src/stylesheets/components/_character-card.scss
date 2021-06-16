@@ -1,0 +1,32 @@
+@import '../core/core';
+
+.character__item {
+  text-decoration: none;
+  width: 180px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  background-color: $color-secondary;
+  color: $color-font;
+  justify-self: center;
+
+  &--header {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+  }
+  &--title {
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+  &--species {
+    margin-top: 2px;
+  }
+  &--image {
+    width: 180px;
+  }
+  &--icons {
+    text-align: right;
+  }
+}

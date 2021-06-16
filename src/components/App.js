@@ -1,12 +1,13 @@
-import "../stylesheets/App.css";
 import { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import api from "../services/api";
-import ListCharacter from "./ListCharacter";
-import FilterCharacter from "./FilterCharacter";
+import CharacterList from "./CharacterList";
+import Filters from "./Filters";
 import CharacterDetail from "./CharacterDetail";
 import ls from "../services/local-storage";
 import RickAndMorty from "../images/RickAndMorty.png";
+import '../stylesheets/layout/_page.scss';
+import '../stylesheets/layout/_footer.scss';
 
 function App() {
   const [character, setCharacter] = useState(ls.get("character", []));
@@ -79,12 +80,12 @@ function App() {
       <main className="main">
         <Switch>
           <Route exact path="/">
-            <FilterCharacter
+            <Filters
               filterName={filterName}
               filterSpecies={filterSpecies}
               handleFilter={handleFilter}
             />
-            <ListCharacter
+            <CharacterList
               character={filteredCharacter}
               filterName={filterName}
             />
@@ -93,7 +94,7 @@ function App() {
         </Switch>
       </main>
       <footer className="page__footer">
-        <small>Adalab and Macarena González &copy; 2021</small>
+        <small>Macarena González &copy; 2021</small>
       </footer>
     </>
   );

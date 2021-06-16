@@ -3,24 +3,25 @@ import { Link } from "react-router-dom";
 import getIconStatus from "../services/getIconStatus";
 import getIconSpecies from "../services/getIconSpecies";
 import PropTypes from "prop-types";
+import '../stylesheets/components/_character-card.scss';
 
 const CharacterCard = (props) => {
   return (
     <Link to={`/character/${props.element.id}`}>
-      <article className="card">
+      <div className="character__item">
         <img
-          className="card__img"
+          className="character__item--image"
           src={props.element.image}
           alt={`Foto de ${props.element.name}`}
           title={`Foto de ${props.element.name}`}
         />
-        <h4 className="card__title">{props.element.name}</h4>
-        <p className="species">{props.element.species}</p>
+        <h4 className="character__item--title">{props.element.name}</h4>
+        <p className="character__item--species">{props.element.species}</p>
         <div className="character__item--icons">
           <span>{getIconStatus(props.element.status)}</span>
           <span>{getIconSpecies(props.element.species)}</span>
         </div>
-      </article>
+      </div>
     </Link>
   );
 };
