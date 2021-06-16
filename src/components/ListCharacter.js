@@ -1,5 +1,6 @@
 import CharacterCard from "./CharacterCard";
 import NotFound from "./NotFound";
+import PropTypes from "prop-types";
 
 function ListCharacter(props) {
   if (props.character.length === 0) {
@@ -20,3 +21,7 @@ function ListCharacter(props) {
 }
 
 export default ListCharacter;
+
+ListCharacter.propsTypes = {
+  character: PropTypes.array,
+};

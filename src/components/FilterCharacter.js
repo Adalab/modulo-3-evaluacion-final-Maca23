@@ -1,10 +1,11 @@
-import FilterByName from './FilterByName';
-import FilterBySpecies from './FilterBySpecies';
+import FilterByName from "./FilterByName";
+import FilterBySpecies from "./FilterBySpecies";
+import PropTypes from "prop-types";
 
 function FilterCharacter(props) {
   const handleForm = (ev) => {
     ev.preventDefault();
-  }
+  };
   return (
     <section>
       <form onSubmit={handleForm}>
@@ -22,3 +23,8 @@ function FilterCharacter(props) {
 }
 export default FilterCharacter;
 
+FilterCharacter.propTypes = {
+  filterName: PropTypes.array,
+  handleFilter: PropTypes.func,
+  filterSpecies: PropTypes.array,
+};

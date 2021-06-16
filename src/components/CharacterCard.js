@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import getIconStatus from '../services/getIconStatus';
+import getIconStatus from "../services/getIconStatus";
 import getIconSpecies from "../services/getIconSpecies";
+import PropTypes from "prop-types";
 
 const CharacterCard = (props) => {
   return (
@@ -25,3 +26,13 @@ const CharacterCard = (props) => {
 };
 
 export default CharacterCard;
+
+CharacterCard.propTypes = {
+  element: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    species: PropTypes.string,
+    photo: PropTypes.string,
+    status: PropTypes.string,
+  }),
+};

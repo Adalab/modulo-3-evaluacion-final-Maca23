@@ -6,6 +6,7 @@ import ListCharacter from "./ListCharacter";
 import FilterCharacter from "./FilterCharacter";
 import CharacterDetail from "./CharacterDetail";
 import ls from "../services/local-storage";
+import RickAndMorty from "../images/RickAndMorty.png";
 
 function App() {
   const [character, setCharacter] = useState(ls.get("character", []));
@@ -67,7 +68,15 @@ function App() {
 
   return (
     <>
-      {
+      <header className="page__header">
+        <img
+          className="page__header--image"
+          src={RickAndMorty}
+          alt="logo"
+          title="logo"
+        />
+      </header>
+      <main className="main">
         <Switch>
           <Route exact path="/">
             <FilterCharacter
@@ -82,7 +91,10 @@ function App() {
           </Route>
           <Route path="/character/:id" render={renderCharacterDetail} />
         </Switch>
-      }
+      </main>
+      <footer className="page__footer">
+        <small>Adalab and Macarena González &copy; 2021</small>
+      </footer>
     </>
   );
 }
