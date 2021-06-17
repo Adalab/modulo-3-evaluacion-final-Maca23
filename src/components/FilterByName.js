@@ -11,6 +11,7 @@ const FilterByName = (props) => {
     <>
       <label htmlFor="name"></label>
       <input
+        className="name"
         type="text"
         name="name"
         id="name"
