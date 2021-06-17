@@ -6,8 +6,7 @@ import Filters from "./Filters";
 import CharacterDetail from "./CharacterDetail";
 import ls from "../services/local-storage";
 import RickAndMorty from "../images/RickAndMorty.png";
-import '../stylesheets/layout/_page.scss';
-import '../stylesheets/layout/_footer.scss';
+import '../stylesheets/App.css';
 
 function App() {
   const [character, setCharacter] = useState(ls.get("character", []));

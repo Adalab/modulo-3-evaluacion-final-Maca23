@@ -1,7 +1,6 @@
 import FilterByName from "./FilterByName";
 import FilterBySpecies from "./FilterBySpecies";
 import PropTypes from "prop-types";
-import '../stylesheets/components/_filters.scss';
 
 function Filters(props) {
   const handleForm = (ev) => {

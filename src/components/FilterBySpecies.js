@@ -9,9 +9,7 @@ const FilterBySpecies = (props) => {
   };
   return (
     <>
-      <label htmlFor="species">
-          Especie:
-      </label>
+      <label htmlFor="species">Especie:</label>
 
       <select
         name="species"
@@ -19,9 +17,15 @@ const FilterBySpecies = (props) => {
         value={props.filterSpecies}
         onChange={handleChange}
       >
-        <option value="">Todos</option>
-        <option value="Human">Humano</option>
-        <option value="Alien">Alien</option>
+        <option className="option" value="">
+          Todos
+        </option>
+        <option className="option" value="Human">
+          Humano
+        </option>
+        <option className="option" value="Alien">
+          Alien
+        </option>
       </select>
     </>
   );

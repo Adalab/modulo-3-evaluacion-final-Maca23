@@ -1,7 +1,6 @@
 import CharacterCard from "./CharacterCard";
 import NotFound from "./NotFound";
 import PropTypes from "prop-types";
-import '../stylesheets/components/_character-list.scss';
 
 function CharacterList(props) {
   if (props.character.length === 0) {
@@ -16,13 +15,13 @@ function CharacterList(props) {
   });
   return (
     <>
-      <section className="characters">
+    
         <ul
-          className={`characters__list characters__list--${props.characters.length}`}
+          className='characters__list'
         >
           {characterElement}
         </ul>
-      </section>
+  
     </>
   );
 }

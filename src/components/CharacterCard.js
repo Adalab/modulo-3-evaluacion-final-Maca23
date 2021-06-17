@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import getIconStatus from "../services/getIconStatus";
 import getIconSpecies from "../services/getIconSpecies";
 import PropTypes from "prop-types";
-import '../stylesheets/components/_character-card.scss';
 
 const CharacterCard = (props) => {
   return (
