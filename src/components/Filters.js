@@ -1,5 +1,6 @@
 import FilterByName from "./FilterByName";
 import FilterBySpecies from "./FilterBySpecies";
+import FilterByStatus from "./FilterByStatus";
 import PropTypes from "prop-types";
 
 function Filters(props) {
@@ -15,6 +16,10 @@ function Filters(props) {
         />
         <FilterBySpecies
           filterSpecies={props.filterSpecies}
+          handleFilter={props.handleFilter}
+        />
+        <FilterByStatus
+          filterStatus={props.filterStatus}
           handleFilter={props.handleFilter}
         />
       </form>

@@ -1,20 +1,23 @@
+import api from "../services/api";
 import { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
-import api from "../services/api";
 import CharacterList from "./CharacterList";
 import Filters from "./Filters";
 import CharacterDetail from "./CharacterDetail";
 import ls from "../services/local-storage";
 import RickAndMorty from "../images/RickAndMorty.png";
-import '../stylesheets/App.css';
+import "../stylesheets/App.css";
 
 function App() {
+  //Eventos principales
   const [character, setCharacter] = useState(ls.get("character", []));
   const [filterName, setFilterName] = useState(ls.get("filterName", ""));
   const [filterSpecies, setFilterSpecies] = useState(
     ls.get("filterSpecies", "")
   );
+  const [filterStatus, setFilterStatus] = useState(ls.get("filterStatus", ""));
 
+  //Evento secundario, cuando recarge la página, sácame la api
   useEffect(() => {
     api().then((data) => {
       const orderedData = data.sort((a, b) =>
@@ -32,7 +35,8 @@ function App() {
     ls.set("character", character);
     ls.set("filterName", filterName);
     ls.set("filterSpecies", filterSpecies);
-  }, [character, filterName, filterSpecies]);
+    ls.set("filterStatus", filterStatus);
+  }, [character, filterName, filterSpecies, filterStatus]);
 
   const renderCharacterDetail = (propsId) => {
     const routeUserId = propsId.match.params.id;
@@ -51,6 +55,8 @@ function App() {
       setFilterName(data.value);
     } else if (data.key === "species") {
       setFilterSpecies(data.value);
+    } else if (data.key === "status") {
+      setFilterStatus(data.value);
     }
   };
 
@@ -63,6 +69,13 @@ function App() {
         return true;
       } else {
         return user.species === filterSpecies;
+      }
+    })
+    .filter((user) => {
+      if (filterStatus === "") {
+        return true;
+      } else {
+        return user.status === filterStatus;
       }
     });
 
@@ -82,6 +95,7 @@ function App() {
             <Filters
               filterName={filterName}
               filterSpecies={filterSpecies}
+              filterStatus={filterStatus}
               handleFilter={handleFilter}
             />
             <CharacterList
